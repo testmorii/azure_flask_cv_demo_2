@@ -1,1 +1,6 @@
 Flask>=1.0,<=1.1.2
+opencv-python
+Pillow
+opencv-python-headless
+azure-cognitiveservices-vision-customvision
+
