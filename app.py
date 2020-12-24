@@ -101,7 +101,7 @@ def send():
                 #print(prediction.tag_name)
                 #cv2.imwrite('result.png', result_image)
 
-        #result_image = cv2.resize(result_image.copy(), (int(result_image.shape[1]*3), int(result_image.shape[0]*3)))
+        result_image = cv2.resize(result_image.copy(), (int(result_image.shape[1]*0.6), int(result_image.shape[0]*0.6)))
 
         # 加工したものを保存する
         gray_img_url = os.path.join(app.config['UPLOAD_FOLDER'], 'gray_'+filename)
