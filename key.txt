@@ -1,5 +1,0 @@
-Prediction URLから参照できるやつ
-my_project_id
-
-prediction_key
-e4fbf500de3642269089be472230e6b1
