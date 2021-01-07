@@ -24,7 +24,7 @@ prediction_credentials = ApiKeyCredentials(in_headers={"Prediction-key": predict
 predictor = CustomVisionPredictionClient(ENDPOINT, prediction_credentials)
 #https://teratail.com/questions/262076
 #predictor = CustomVisionPredictionClient(ENDPOINT, prediction_key)
-my_iteration_name = "Iteration1"
+my_iteration_name = "Iteration3"
 #my_iteration_name = "376b0226-1d6e-45b3-80ef-2900a409aae6"
 #https://dev.to/stratiteq/puffins-detection-with-azure-custom-vision-and-python-2ca5
 
