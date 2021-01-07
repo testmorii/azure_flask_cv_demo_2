@@ -14,8 +14,8 @@ from msrest.authentication import ApiKeyCredentials
 #my_project_id = "/subscriptions/7c20a5c8-956e-4eb4-b5e4-946870fff696/resourceGroups/ClassificatinTest/providers/Microsoft.CognitiveServices/accounts/ClassificatinTest" 
 my_project_id = "78c68f9f-7790-40da-ae8d-29b352b8c20c"
 
-#prediction_key = "cff6e899bb3f4404af5abdc15eb23784"
-prediction_key = "e4fbf500de3642269089be472230e6b1"
+prediction_key = "cff6e899bb3f4404af5abdc15eb23784"
+#prediction_key = "e4fbf500de3642269089be472230e6b1"
 
 ENDPOINT = "https://cv-morii-1.cognitiveservices.azure.com/"
 
