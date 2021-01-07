@@ -13,8 +13,9 @@ from msrest.authentication import ApiKeyCredentials
 
 #my_project_id = "/subscriptions/7c20a5c8-956e-4eb4-b5e4-946870fff696/resourceGroups/ClassificatinTest/providers/Microsoft.CognitiveServices/accounts/ClassificatinTest" 
 my_project_id = "78c68f9f-7790-40da-ae8d-29b352b8c20c"
-#prediction_key = "921e4a0dd5f04cd190e915cc04933deb"
-prediction_key = "cff6e899bb3f4404af5abdc15eb23784"
+
+#prediction_key = "cff6e899bb3f4404af5abdc15eb23784"
+prediction_key = "e4fbf500de3642269089be472230e6b1"
 
 ENDPOINT = "https://cv-morii-1.cognitiveservices.azure.com/"
 
@@ -69,7 +70,8 @@ def send():
         file_bytes = np.asarray(bytearray(bin_data.read()), dtype=np.uint8)
         img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
         # とりあえずサイズは小さくする
-        raw_img = cv2.resize(img, (IMAGE_WIDTH, int(IMAGE_WIDTH*img.shape[0]/img.shape[1])))
+        img = cv2.resize(img, (640, 480))
+        raw_img = cv2.resize(img, (320, 240))
 
         # サイズだけ変えたものも保存する
         raw_img_url = os.path.join(app.config['UPLOAD_FOLDER'], 'raw_' + filename)
@@ -87,7 +89,7 @@ def send():
         result_image = img
         img_h, img_w = result_image.shape[:2]
         for prediction in results.predictions:
-            if prediction.probability > 0.7:
+            if prediction.probability > 0.6:
                 bbox = prediction.bounding_box
                 result_image = cv2.rectangle(result_image, (int(bbox.left * img_w), int(bbox.top * img_h)), (int((bbox.left + bbox.width) * img_w), int((bbox.top + bbox.height) * img_h)), (0, 255, 0), 3)
                 label = prediction.tag_name
@@ -101,7 +103,7 @@ def send():
                 #print(prediction.tag_name)
                 #cv2.imwrite('result.png', result_image)
 
-        result_image = cv2.resize(result_image.copy(), (int(result_image.shape[1]*0.6), int(result_image.shape[0]*0.6)))
+        result_image = cv2.resize(result_image.copy(), (320, 240))
 
         # 加工したものを保存する
         gray_img_url = os.path.join(app.config['UPLOAD_FOLDER'], 'gray_'+filename)
