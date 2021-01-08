@@ -89,7 +89,7 @@ def send():
         result_image = img
         img_h, img_w = result_image.shape[:2]
         for prediction in results.predictions:
-            if prediction.probability > 0.6:
+            if prediction.probability > 0.7:
                 bbox = prediction.bounding_box
                 result_image = cv2.rectangle(result_image, (int(bbox.left * img_w), int(bbox.top * img_h)), (int((bbox.left + bbox.width) * img_w), int((bbox.top + bbox.height) * img_h)), (0, 255, 0), 3)
                 label = prediction.tag_name
